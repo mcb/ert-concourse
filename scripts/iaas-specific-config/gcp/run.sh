@@ -13,7 +13,6 @@ rm -rf /tmp/blah
 gcloud config set project $gcp_proj_id
 gcloud config set compute/region $gcp_region
 
-
 #############################################################
 # get GCP unique SQL instance ID & set params in JSON       #
 #############################################################
@@ -54,3 +53,10 @@ done
 
 perl -pi -e "s|{{gcp_storage_access_key}}|${gcp_storage_access_key}|g" ${json_file}
 perl -pi -e "s|{{gcp_storage_secret_key}}|${gcp_storage_secret_key}|g" ${json_file}
+
+# DB Configuration
+
+perl -pi -e "s|{{gcloud_sql_instance_id}}|${gcloud_sql_instance_id}|g" ${json_file}
+perl -pi -e "s|{{gcloud_sql_instance_username}}|${ert_sql_db_username}|g" ${json_file}
+perl -pi -e "s|{{gcloud_sql_instance_password}}|${ert_sql_db_password}|g" ${json_file}
+
