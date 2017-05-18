@@ -15,6 +15,7 @@ om-linux --target https://opsman.$pcf_ert_domain -k \
        --password "$pcf_opsman_admin_passwd" \
       upload-product \
       --product pivnet-elastic-runtime/cf*.pivotal
+      --request-timeout 7200
 
 ##Get Uploaded Tile --product-version
 
