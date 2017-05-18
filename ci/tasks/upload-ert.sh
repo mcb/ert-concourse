@@ -8,14 +8,18 @@ echo "==========================================================================
 echo " Uploading ERT tile to @ https://opsman.$pcf_ert_domain ..."
 echo "=============================================================================================="
 
+if [ -z "${tile_upload_timeout}" ]; then 
+  export tile_upload_timeout=1800 
+fi
+
 ##Upload ert Tile
 
 om-linux --target https://opsman.$pcf_ert_domain -k \
        --username "$pcf_opsman_admin" \
        --password "$pcf_opsman_admin_passwd" \
+       --request-timeout $tile_upload_timeout \
       upload-product \
       --product pivnet-elastic-runtime/cf*.pivotal
-      --request-timeout 7200
 
 ##Get Uploaded Tile --product-version
 
