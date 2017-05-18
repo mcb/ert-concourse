@@ -18,3 +18,4 @@ params:
   pcf_ert_domain:
   pcf_opsman_admin:
   pcf_opsman_admin_passwd:
+  tile_upload_timeout:
